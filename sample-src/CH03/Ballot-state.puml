@@ -1,0 +1,8 @@
+@startuml
+'https://plantuml.com/state-diagram
+
+left to right direction
+[*] --> Regs : T = 0
+Regs --> Vote : T+10일
+Vote --> [*] : T+11일
+@enduml

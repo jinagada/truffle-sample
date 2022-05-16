@@ -1,0 +1,11 @@
+@startuml
+'https://plantuml.com/use-case-diagram
+left to right direction
+:불특정 다수: --> (reqWinner)
+(reqWinner) -> (count votes)
+
+:의장: --> (register)
+:의장: --> (vote)
+:의장: -> :투표자: : IS-A
+:투표자: --> (vote)
+@enduml

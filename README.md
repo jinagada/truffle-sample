@@ -91,7 +91,17 @@
    ```bash
    {WORK_DIR}$ truffle create contract Counter
    ```
-   2. 배포 스크립트 생성
+   2. 배포 스크립트 생성 및 수정
    ```bash
    {WORK_DIR}$ truffle create migration deploy
    ```
+   3. 테스트 소스 작성
+      1. 위치 : test/*.sol
+   4. 5번 사항을 참고하여 아래를 수행
+      1. compile
+      2. 배포
+   5. 테스트 코드 실행
+   ```bash
+   {WORK_DIR}$ truffle test
+   ```
+   6. 테스트 결과 확인
