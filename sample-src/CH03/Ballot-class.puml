@@ -1,0 +1,26 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Ballot {
+    struct Voter{}
+
+    Proposal[] proposals;
+
+    enum Phase {Init, Regs, Vote, Done}
+    Phase public state = Phase.Init;
+
+    address chairperson;
+    mapping(address => Voter) voters;
+    __
+    modifier validPhase(Phase reqPhase) { require(state == reqPhase); _; }
+    __
+    constructor(int numProposals) public
+
+    register(address voter) public validPhase(Phase.Regs){}
+
+    vote(int prop) public validPhase(Phase.Vote){}
+
+    reqWinner() public validPhase(Phase.Done){}
+}
+
+@enduml

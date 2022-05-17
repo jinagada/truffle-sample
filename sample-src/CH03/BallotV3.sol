@@ -18,9 +18,9 @@ contract BallotV3 {
     Phase public state = Phase.Done; 
     
        //modifiers
-   modifier validPhase(Phase reqPhase) 
-    { require(state == reqPhase); 
-      _; 
+    modifier validPhase(Phase reqPhase) {
+        require(state == reqPhase);
+        _;
     } 
     
      
