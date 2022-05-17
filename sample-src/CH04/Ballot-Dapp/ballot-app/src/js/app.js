@@ -2,7 +2,7 @@ App = {
   web3Provider: null,
   contracts: {},
   names: new Array(),
-  url: 'http://127.0.0.1:7545',
+  url: 'http://127.0.0.1:8545',
   chairPerson:null,
   currentAccount:null,
   init: function() {

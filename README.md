@@ -33,7 +33,7 @@
 4. Ganache Ethereum Local Instance 실행
    1. 실행 명령어
    ```bash
-   {WORK_DIR}$ ganache-cli -p 7545
+   {WORK_DIR}$ ganache-cli -p 8545 -i 1337
    ```
 5. 컴파일 위치 변경
    1. truffle-config.js 파일 수정
