@@ -24,7 +24,7 @@
            development: {
                host: "127.0.0.1",
                port: 7545,
-               network_id: "*" // Match any network id
+               network_id: "5777"
            }
        },
        // ...
@@ -32,8 +32,9 @@
    ```
 4. Ganache Ethereum Local Instance 실행
    1. 실행 명령어
+      1. 반드시 -i 옵션으로 사용할 network_id 를 설정하고 실행할 것!!
    ```bash
-   {WORK_DIR}$ ganache-cli -p 8545 -i 1337
+   {WORK_DIR}$ ganache-cli -p 7545 -i 5777
    ```
 5. 컴파일 위치 변경
    1. truffle-config.js 파일 수정
@@ -105,3 +106,10 @@
    {WORK_DIR}$ truffle test
    ```
    6. 테스트 결과 확인
+   7. Metamask
+      1. PW : 0 -> 1
+      2. 테스트 계정을 재설정할 경우
+         1. 크롬에서 플러그인 삭제
+         2. 재설치 후 새계정 생성으로 비밀번호를 재등록하면 기존 설정이 모두 사라진 상태로 재설치됨
+         3. Ganache 연동 후 테스트용 계정을 Metamask에 등록
+         4. ETH 가 존재하는 계정에서 ETH를 Account1에 보낸 후 테스트를 시작할것!!
