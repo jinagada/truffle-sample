@@ -3,24 +3,36 @@
 
 class Ballot {
     struct Voter{}
-
     Proposal[] proposals;
-
     enum Phase {Init, Regs, Vote, Done}
     Phase public state = Phase.Init;
-
     address chairperson;
     mapping(address => Voter) voters;
     __
     modifier validPhase(Phase reqPhase) { require(state == reqPhase); _; }
     __
     constructor(int numProposals) public
-
     register(address voter) public validPhase(Phase.Regs){}
-
     vote(int prop) public validPhase(Phase.Vote){}
-
     reqWinner() public validPhase(Phase.Done){}
 }
+
+note top of Ballot
+컨트랙트 이름
+end note
+note left of Ballot::enum
+데이터 구조
+end note
+note left of Ballot::modifier
+수정자,
+여기서는 한 개만 정의
+end note
+note left of Ballot::register
+함수들
+end note
+note "수정자를 사용" as N1
+N1 -left-> Ballot::register #red;line.dotted;
+N1 --> Ballot::vote #red;line.dotted;
+N1 --> Ballot::reqWinner #red;line.dotted;
 
 @enduml

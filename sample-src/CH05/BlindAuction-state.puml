@@ -1,0 +1,18 @@
+@startuml
+'https://plantuml.com/state-diagram
+
+left to right direction
+
+[*] --> Init
+Init --> Bidding
+note on link : 수혜자가 단계의 변환을 관리
+Bidding --> Reveal
+note on link : 수혜자가 단계의 변환을 관리
+Reveal --> Done
+note on link : 수혜자가 단계의 변환을 관리
+Done --> [*]
+
+note top of Bidding : 이 상태에서 블라인 입찰이 발생
+note top of Reveal : 이 상태에서 입찰 공개가 일어남
+
+@enduml

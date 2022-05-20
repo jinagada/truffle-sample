@@ -1,0 +1,34 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class BlindAuction {
+    address beneficiary;
+    struct Bid { bytes32 blindedBid; uint deposit; }
+    mapping(address => bid);
+    mapping(address => int) depositReturn;
+    address highestBidder;
+    int highestBid;
+    __
+    modifier onlyBeneficiary;
+    modifier validPhase;
+    __
+    constructor()
+    changeState(nextState)
+    bid(blindBid) payable
+    reveal(bidValue, secret)
+    placeBid() internal
+    auctionEnd()
+    withdraw()
+}
+
+note left of BlindAuction::mapping
+데이터 구조
+end note
+note left of BlindAuction::modifier
+수정자들
+end note
+note left of BlindAuction::reveal
+함수들
+end note
+
+@enduml

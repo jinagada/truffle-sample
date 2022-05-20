@@ -1,11 +1,23 @@
 @startuml
 'https://plantuml.com/use-case-diagram
+
 left to right direction
+
 :불특정 다수: --> (reqWinner)
 (reqWinner) -> (count votes)
-
 :의장: --> (register)
 :의장: --> (vote)
 :의장: -> :투표자: : IS-A
 :투표자: --> (vote)
+
+
+note "행위자" as N1
+N1 --> :의장: #red;line.dotted;
+N1 --> :투표자: #red;line.dotted;
+N1 --> :불특정 다수: #red;line.dotted;
+note "유즈케이스" as N2
+N2 --> (register) #red;line.dotted;
+N2 --> (vote) #red;line.dotted;
+N2 --> (reqWinner) #red;line.dotted;
+
 @enduml
