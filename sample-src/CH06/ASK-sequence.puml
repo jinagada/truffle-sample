@@ -1,0 +1,31 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+participant "ASK 컨소시엄 의장" as ASK
+participant "항공사 스마트 컨트랙트" as airline
+participant "fromAirline(s)" as F1
+participant "toAirline(s)" as F2
+participant "오프체인 ASK 디스플레이" as display
+
+note over ASK : 컨트랙트 배포
+/ note over airline : 예치금으로 지급 정산
+/ note over F1 : 자가 등록
+/ note over F2 : 자가 등록
+
+autonumber
+ASK -> airline : constructor()
+F1 -> airline : register()
+F2 -> airline : register()
+F1 --> F2 : offchain-request()
+F1 -> airline : ASKRequest()
+F2 --> F1 : offchain-response()
+F2 -> airline : ASKResponse()
+F1 -> airline : settlePayment()
+F1 --> display : offchain-updateSeats()
+autonumber stop
+ASK -> airline : unregister(airline)
+
+note over airline : 이 Txs는 모두 블록체인에 저장
+
+
+@enduml

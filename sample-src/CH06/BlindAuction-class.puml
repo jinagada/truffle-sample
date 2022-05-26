@@ -1,0 +1,44 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class BlindAuction {
+address beneficiary
+struct bid {bytes32 blindedBid; uint deposit}
+mapping (address => bid)
+mapping (address => int) depositReturn;
+address hightestBidder
+int highestBid
+__
+event AuctionEnded()
+event BiddingStarted()
+event RevealStarted()
+__
+modifier onlyBeneficiary
+modifier validPhase
+__
+constructor()
+advancePhase()
+bid(blindBid) payable
+reveal(bidValue, secret)
+placeBid() internal
+auctionEnd()
+withdraw()
+}
+
+note right of BlindAuction::mapping
+데이터 타입과 데이터 정의
+end note
+note right of BlindAuction::BiddingStarted
+이벤트 정의
+end note
+note right of BlindAuction::onlyBeneficiary
+수정자 정의
+end note
+note right of BlindAuction::advancePhase
+단계 진행 함수
+end note
+note right of BlindAuction::reveal
+함수 정의
+end note
+
+@enduml
