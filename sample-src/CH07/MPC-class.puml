@@ -1,0 +1,40 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class MPC {
+address sender public payable
+address recipient public payable
+//escrow deposit data-implicit
+__
+constructor(address payable reciever)
+claimPayment(uint amt, bytes memory signature)
+isValidSignature(uint amt, bytes memory signature)
+splitSignature(bytes memory signature)
+recoverSigner(bytes32 msg, bytes memory signature)
+prefixed(bytes32 hash)
+}
+
+note left of MPC::constructor
+주관자가 호출
+end note
+note left of MPC::claimPayment
+작업자가 호출
+end note
+note left of MPC::isValidSignature
+지급을 하기 전에
+주관자(아이덴티티) 주소를
+시그니처에서 추출하고 검증
+end note
+note as N4
+스그니처로부터 주관자의
+주소를 복구하는
+헬퍼 함수들.
+내부 유틸리티 함수.
+블록체인에 기록되지 않음
+end note
+
+N4 -left-> MPC::splitSignature
+N4 -> MPC::recoverSigner
+N4 -> MPC::prefixed
+
+@enduml

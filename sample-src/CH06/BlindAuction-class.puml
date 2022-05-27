@@ -25,19 +25,19 @@ auctionEnd()
 withdraw()
 }
 
-note right of BlindAuction::mapping
+note left of BlindAuction::mapping
 데이터 타입과 데이터 정의
 end note
-note right of BlindAuction::BiddingStarted
+note left of BlindAuction::BiddingStarted
 이벤트 정의
 end note
-note right of BlindAuction::onlyBeneficiary
+note left of BlindAuction::onlyBeneficiary
 수정자 정의
 end note
 note right of BlindAuction::advancePhase
 단계 진행 함수
 end note
-note right of BlindAuction::reveal
+note left of BlindAuction::reveal
 함수 정의
 end note
 
