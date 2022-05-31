@@ -1,0 +1,28 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+participant "MPC 주관자" as O1
+participant "MPC 스마트 컨트랙트" as SC1
+participant "작업자" as W1
+participant "확인자" as C1
+
+note over O1 : 컨트랙트 배포
+/ note over SC1 : 예치금, 주관자와 작업자 주소와 함께 배포
+/ note over W1 : 탈중앙화된 불특정 다수
+/ note over C1 : 자율화된 수집소
+
+autonumber
+O1 -> SC1 : constructor()
+note left: 페이먼트 채널 개설
+W1 --> W1 : 플라스틱 수거
+activate W1
+W1 --> C1 : 수거 상자 제출
+deactivate W1
+C1 --> O1 : 상자 수 보고
+O1 --> W1 : 마이크로 페이먼트 메시지 보냄
+note over O1 : 2에서 5까지 다수 반복
+W1 -> SC1 : claimPayment()
+note right : 작업자에게 송금, 주관자 어카운트에서 차감, 남은 벨런스를 주관자에게 돌려준 후, 채널은 종료
+
+
+@enduml
