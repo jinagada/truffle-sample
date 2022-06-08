@@ -1,0 +1,47 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class RES4 {
+structasset {uint256 id; uint price;}
+uint assetCount;
+uint supervisor;
+mapping (uint => asset) assetMap;
+mapping (uint => address) assetOwner;
+mapping (address => uint) ownerAssetCount;
+mapping (uint => address) approvals;
+__
+event Transfer
+event Approval
+__
+// RES4-specific functions
+function addAsset (uint price, uint toAddress)
+function build (uint assetId, uint value)
+function approve (address toAddress, uint tokenId)
+function transferFrom (address fromAddress, address toAddress, uint tokenId)
+function appreciate (uint tokenId, uint valueChange)
+function depreciate (uint tokenId, uint valueChange)
+// Addtional ERC721 functions
+}
+
+note top of RES4
+RES4는 ERC721 호환
+end note
+note left of RES4::mapping
+RES4에 특정한 데이터"
+end note
+note left of RES4::event
+ERC721 표준에 따른 RES4 이벤트
+end note
+note "RES4 애플리케이션에 특정한 함수" as N3
+N3 -left-> RES4::addAsset
+N3 -left-> RES4::build
+N3 -left-> RES4::appreciate
+N3 -left-> RES4::depreciate
+note left of RES4::approve
+ERC721 호환 함수
+end note
+note left of RES4::transferFrom
+ERC721 호환 함수
+end note
+
+@enduml

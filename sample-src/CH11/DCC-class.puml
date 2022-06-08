@@ -1,0 +1,42 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class DCC {
+struct Student {uint personNumber;
+                // course categories details}
+mapping (address => Student) registeredStudents;
+__
+event preRequisiteSatisfied()
+event coreCoursesSatisfied()
+event domainRequirementSatisfied()
+event projectRequirementSatisfied()
+event GPARequirementSatisfied()
+event GPA()
+__
+modifier checkStudent(...)
+modifier validStudent(...)
+__
+function registerStudent (uint personNumber)
+function loginStudent (uint personNumber) view
+function addPreRequisiteCourse(...)
+function addCoreCourse(...)
+function addDomainSpecificCourse(...)
+function addCapstoneCourse(...)
+function checkEligibility(...)
+function selfdestruct(...)
+}
+
+note left of DCC::mapping
+DCC 특정 데이터
+end note
+note left of DCC::domainRequirementSatisfied
+DCC 이벤트들
+end note
+note left of DCC::validStudent
+DCC 수정자들
+end note
+note left of DCC::addCoreCourse
+DCC 함수들
+end note
+
+@enduml

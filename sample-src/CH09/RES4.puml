@@ -1,0 +1,20 @@
+@startuml
+'https://plantuml.com/use-case-diagram
+
+left to right direction
+
+actor :마을 관리자:
+actor :자산 소유자:
+actor :구매자:
+actor :마을 감정평가사:
+
+rectangle Action {
+    :마을 관리자: --> (RES4 자산토큰 발행)
+    :마을 관리자: --> (다른 RES721 함수들)
+    :자산 소유자: --> (건축, 자산 가치 추가)
+    :자산 소유자: --> (허락 -구매 희망자-)
+     (소유권 이전 -자산 구매-) <-- :구매자:
+    :마을 감정평가사: --> (자산 평가, 가치 상승, 하락)
+}
+
+@enduml

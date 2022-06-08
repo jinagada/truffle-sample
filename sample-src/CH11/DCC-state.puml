@@ -1,0 +1,17 @@
+@startuml
+'https://plantuml.com/state-diagram
+
+[*] -> 등록
+[*] --> 로그인
+로그인 -> 과목추가
+로그인 --> 자격확인
+로그인 --> 과목변경
+
+note right of 등록 : 1. DCC 최초 접속, 자가 등록
+note left of 로그인 : 2. DCC 재접속
+note right of 과목추가 : 3. 카테고리, 과목, 학점 선택
+note left of 자격확인 : 4. 확인하고 상태 출력
+note right of 과목변경 : 5. 과목 또는 학점 변경
+
+
+@enduml
